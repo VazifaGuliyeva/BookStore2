@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="createSubscriptionsTable" author="vazifaguliyeva">
+        <createTable tableName="subscriptions">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="author_id" type="INT">
+                <constraints foreignKeyName="FK_subscriptions_author" referencedTableName="authors" referencedColumnNames="id"/>
+            </column>
+            <column name="student_id" type="INT">
+                <constraints foreignKeyName="FK_subscriptions_student" referencedTableName="students" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
